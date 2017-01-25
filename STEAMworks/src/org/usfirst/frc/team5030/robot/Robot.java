@@ -30,7 +30,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		robotmap = new RobotMap();
+		//robotmap = new RobotMap();
 		intake = new Intake();
 		climber = new Climber();
 		drivetrain = new DriveTrain();

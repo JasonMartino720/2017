@@ -1,5 +1,6 @@
  package org.usfirst.frc.team5030.robot.subsystems;
 
+import org.usfirst.frc.team5030.robot.Robot;
 import org.usfirst.frc.team5030.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -11,22 +12,22 @@ static final int intakeHoodToHopper = 45;
 
 	public void IntakeOff()
 	{
-		RobotMap.intakeBack.set(0.0);
-		RobotMap.intakeFront.set(0.0);
+		Robot.robotmap.intakeBack.set(0.0);
+		Robot.robotmap.intakeFront.set(0.0);
 		RobotMap.intakeHood.setAngle(intakeHoodDefault);
 	}
 	
 	public void IntakeIn()
 	{
-		RobotMap.intakeBack.set(-1.0);
-		RobotMap.intakeFront.set(1.0);
+		Robot.robotmap.intakeBack.set(-1.0);
+		Robot.robotmap.intakeFront.set(1.0);
 		RobotMap.intakeHood.setAngle(intakeHoodToHopper);
 	}
 	
 	public void IntakeOut()
 	{
-		RobotMap.intakeBack.set(1.0);
-		RobotMap.intakeFront.set(-1.0);
+		Robot.robotmap.intakeBack.set(1.0);
+		Robot.robotmap.intakeFront.set(-1.0);
 		RobotMap.intakeHood.setAngle(intakeHoodDefault);
 	}
 	
