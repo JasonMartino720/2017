@@ -22,6 +22,14 @@ static final int intakeHoodToHopper = 45;
 		RobotMap.intakeFront.set(1.0);
 		RobotMap.intakeHood.setAngle(intakeHoodToHopper);
 	}
+	
+	public void IntakeOut()
+	{
+		RobotMap.intakeBack.set(1.0);
+		RobotMap.intakeFront.set(-1.0);
+		RobotMap.intakeHood.setAngle(intakeHoodDefault);
+	}
+	
 
     public void initDefaultCommand() 
     {

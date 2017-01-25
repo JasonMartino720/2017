@@ -2,6 +2,7 @@ package org.usfirst.frc.team5030.robot;
 
 import org.usfirst.frc.team5030.robot.commands.IntakeIn;
 import org.usfirst.frc.team5030.robot.commands.IntakeOff;
+import org.usfirst.frc.team5030.robot.commands.IntakeOut;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -27,7 +28,7 @@ public class OI
 	public OI()
 	{
 		intakeIn.whileHeld(new IntakeIn());
-		intakeIn.whenReleased(new IntakeOff());
+		intakeOut.whileHeld(new IntakeOut());
 	}	
 	
 }

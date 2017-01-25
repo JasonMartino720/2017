@@ -13,15 +13,14 @@ import org.usfirst.frc.team5030.robot.subsystems.Climber;
 import org.usfirst.frc.team5030.robot.subsystems.DriveTrain;
 
 
-
 public class Robot extends IterativeRobot {
 	
-	public static final Intake intake = new Intake();
-	public static final Climber climber = new Climber();
-	public static final DriveTrain drivetrain = new DriveTrain();
+	public static Intake intake;
+	public static Climber climber;
+	public static DriveTrain drivetrain;
 	public static OI oi;
+	public static RobotMap robotmap;
 	
-
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -31,6 +30,10 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		robotmap = new RobotMap();
+		intake = new Intake();
+		climber = new Climber();
+		drivetrain = new DriveTrain();
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ClimberOff());
 		SmartDashboard.putData("Auto mode", chooser);
