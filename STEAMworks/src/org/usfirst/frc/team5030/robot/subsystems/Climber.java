@@ -11,17 +11,17 @@ public class Climber extends Subsystem {
 
     public void ClimberOff()
     {
-    	Robot.robotmap.Climber.set(0.0);
+    	Robot.robotmap.climberMotor.set(0.0);
     }
     
     public void ClimberCW()
     {
-    	Robot.robotmap.Climber.set(1.0);
+    	Robot.robotmap.climberMotor.set(1.0);
     }
 
     public void ClimberCCW()
     {
-    	Robot.robotmap.Climber.set(-1.0);
+    	Robot.robotmap.climberMotor.set(-1.0);
     }
     
     public void initDefaultCommand() 

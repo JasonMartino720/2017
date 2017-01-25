@@ -27,7 +27,7 @@ public class RobotMap
 	
 	//Talon SR for the climber
 	public int climber = 0;
-	public Talon Climber = new Talon(climber);
+	public Talon climberMotor = new Talon(climber);
 	
 	//Talon SR for the front of the intake
 	public int intakefront = 1;
