@@ -12,7 +12,7 @@ public class Shooter extends Subsystem {
     public void AllOff()
     {
     	Robot.robotmap.Shooter.set(0.0);
-    	Robot.robotmap.
+    	
     }
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
