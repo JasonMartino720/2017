@@ -44,6 +44,7 @@ public class JoystickOperation extends Command {
         	rightJoy = Robot.oi.DriverStick.getRawAxis(5);
         }
     
+       // Robot.drivetrain.tankDrive(leftJoy, rightJoy);
         Robot.drivetrain.tankDrive(leftJoy, rightJoy);
    
     }

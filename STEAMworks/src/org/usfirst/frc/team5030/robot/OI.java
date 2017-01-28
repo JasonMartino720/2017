@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5030.robot;
 
+import org.usfirst.frc.team5030.robot.commands.ClimberCCW;
+import org.usfirst.frc.team5030.robot.commands.ClimberCW;
 import org.usfirst.frc.team5030.robot.commands.IntakeIn;
 import org.usfirst.frc.team5030.robot.commands.IntakeOff;
 import org.usfirst.frc.team5030.robot.commands.IntakeOut;
@@ -24,11 +26,16 @@ public class OI
 		static Button intakeOut = new JoystickButton(OperatorStick,4);
 		static Button spinUp = new JoystickButton(OperatorStick,5);
 		static Button shoot = new JoystickButton(OperatorStick, 6);
+		static Button climberCW = new JoystickButton(OperatorStick , 11);
+		static Button climberCCW = new JoystickButton(OperatorStick , 12);
 	
 	public OI()
 	{
 		intakeIn.whileHeld(new IntakeIn());
 		intakeOut.whileHeld(new IntakeOut());
+		climberCW.whileHeld(new ClimberCW());
+		climberCCW.whileHeld(new ClimberCCW());
+		
 	}	
 	
 }
