@@ -10,9 +10,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveTrain extends Subsystem
 {
-	public static RobotDrive drive = new RobotDrive(RobotMap.FLSRX, RobotMap.BLSRX, RobotMap.FRSRX, RobotMap.BRSRX);
+	public static RobotDrive drive;
 	final double driverBands = 0.08;
 		
+	public DriveTrain()
+	{
+		drive = new RobotDrive(RobotMap.FLSRX, RobotMap.BLSRX, RobotMap.FRSRX, RobotMap.BRSRX);
+		drive.setExpiration(1.0);
+	}
 	public void tankDrive(double leftJoy , double rightJoy)
 	{
 		drive.tankDrive(-leftJoy, -rightJoy, true);

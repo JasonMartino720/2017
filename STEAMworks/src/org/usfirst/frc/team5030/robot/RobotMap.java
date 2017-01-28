@@ -46,14 +46,18 @@ public class RobotMap
 	public int intakeback = 2; 
 	public Talon intakeBack = new Talon(intakeback);
 	
+	//Talon SR for motor to feed the shooter
+	public int feeder = 3;
+	public Talon feederMotor = new Talon(feeder);
+	
 	//Servo for intake hood
-	public static final Servo intakeHood = new Servo(3);
+	public static final Servo intakeHood = new Servo(4);
 	
 	//Servo for Gear Mechanism
-	public static final Servo gearMechanism = new Servo(4);
+	public static final Servo gearMechanism = new Servo(5);
 	
 	//Servo for Hopper Actuation
-	public static final Servo Hopper = new Servo(5);
+	public static final Servo Hopper = new Servo(6);
 	
 	public RobotMap()
 	{
