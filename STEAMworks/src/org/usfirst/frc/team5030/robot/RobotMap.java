@@ -11,19 +11,28 @@ import edu.wpi.first.wpilibj.Servo;
 public class RobotMap 
 {
 	//Front Talon in the left transmission ID = 0
-	public static final CANTalon FLSRX = new CANTalon(0);
 	
+	public static CANTalon FLSRX;
+		
+		
 	//Back Talon in the left transmission ID = 1
-	public static final CANTalon BLSRX = new CANTalon(1);
-	
+		
+	public static CANTalon BLSRX;
+		
+		
 	//Front Talon in the right transmission ID = 2
-	public static final CANTalon FRSRX = new CANTalon(2);
-	
+		
+	public static CANTalon FRSRX;
+		
+		
 	//Back Talon in the right transmission ID = 3
-	public static final CANTalon BRSRX = new CANTalon(3);
-	
+		
+	public static CANTalon BRSRX;
+		
+		
 	//Talon SRX for the shooter motor ID = 4
-	public static final CANTalon Shooter = new CANTalon(4);
+		
+	public static CANTalon Shooter;
 	
 	//Talon SR for the climber
 	public int climber = 0;
@@ -46,7 +55,14 @@ public class RobotMap
 	//Servo for Hopper Actuation
 	public static final Servo Hopper = new Servo(5);
 	
-	
+	public RobotMap()
+	{
+		FLSRX = new CANTalon(0);
+		BLSRX = new CANTalon(1);
+		FRSRX = new CANTalon(2);
+		BRSRX = new CANTalon(3);
+		Shooter = new CANTalon(4);
+	}
 	
 	
 		
