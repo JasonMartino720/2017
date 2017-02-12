@@ -32,22 +32,22 @@ public class RobotMap
 		
 	//Talon SRX for the shooter motor ID = 4
 		
-	public static CANTalon Shooter;
+	public static CANTalon ShooterMotor;
 	
 	//Talon SR for the climber
-	public int climber = 0;
+	int climber = 0;
 	public Talon climberMotor = new Talon(climber);
 	
 	//Talon SR for the front of the intake
-	public int intakefront = 1;
+	int intakefront = 2;
 	public Talon intakeFront = new Talon(intakefront);
 	
 	//Talon SR for the back of the intake
-	public int intakeback = 2; 
+	int intakeback = 3; 
 	public Talon intakeBack = new Talon(intakeback);
 	
 	//Talon SR for motor to feed the shooter
-	public int feeder = 3;
+	int feeder = 1;
 	public Talon feederMotor = new Talon(feeder);
 	
 	//Servo for intake hood
@@ -59,13 +59,17 @@ public class RobotMap
 	//Servo for Hopper Actuation
 	public static final Servo Hopper = new Servo(6);
 	
+	//Temporary Motor for Shooter on Talon SE
+	int tempShooter = 7;
+	public Talon TempShooter = new Talon(tempShooter);
+	
 	public RobotMap()
 	{
 		FLSRX = new CANTalon(0);
 		BLSRX = new CANTalon(1);
 		FRSRX = new CANTalon(2);
 		BRSRX = new CANTalon(3);
-		Shooter = new CANTalon(4);
+		ShooterMotor = new CANTalon(4);
 	}
 	
 	

@@ -8,9 +8,11 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team5030.robot.subsystems.Intake;
+import org.usfirst.frc.team5030.robot.subsystems.Shooter;
 import org.usfirst.frc.team5030.robot.commands.ClimberOff;
 import org.usfirst.frc.team5030.robot.subsystems.Climber;
 import org.usfirst.frc.team5030.robot.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj.Timer;
 
 
 public class Robot extends IterativeRobot {
@@ -20,6 +22,8 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain drivetrain;
 	public static OI oi;
 	public static RobotMap robotmap;
+	public static Shooter shooter;
+	public static Timer timer;
 	
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
@@ -34,7 +38,9 @@ public class Robot extends IterativeRobot {
 		intake = new Intake();
 		climber = new Climber();
 		drivetrain = new DriveTrain();
+		shooter = new Shooter();
 		oi = new OI();
+		timer = new Timer();
 		chooser.addDefault("Default Auto", new ClimberOff());
 		SmartDashboard.putData("Auto mode", chooser);
 	}
@@ -105,6 +111,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+				
 	}
 
 	/**
