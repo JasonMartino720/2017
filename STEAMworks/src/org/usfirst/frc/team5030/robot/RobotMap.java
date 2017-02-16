@@ -50,18 +50,20 @@ public class RobotMap
 	int feeder = 1;
 	public Talon feederMotor = new Talon(feeder);
 	
-	//Servo for intake hood
-	public static final Servo intakeHood = new Servo(4);
+	//Servo for left intake hood
+	public static final Servo intakeHoodLeft = new Servo(4);
+	
+	//Servo for Right intake hood
+	public static final Servo intakeHoodRight = new Servo(5);
 	
 	//Servo for Gear Mechanism
-	public static final Servo gearMechanism = new Servo(5);
+	public static final Servo gearMechanism = new Servo(6);
 	
 	//Servo for Hopper Actuation
-	public static final Servo Hopper = new Servo(6);
+	public static final Servo Hopper = new Servo(7);
 	
-	//Temporary Motor for Shooter on Talon SE
-	int tempShooter = 7;
-	public Talon TempShooter = new Talon(tempShooter);
+	int Sploosher = 8;
+	public Talon SploosherMotor = new Talon(Sploosher);
 	
 	public RobotMap()
 	{

@@ -28,7 +28,7 @@ public class OI
 	public static Joystick OperatorStick = new Joystick(1);
 		static Button intakeIn = new JoystickButton(OperatorStick,1);
 		static Button intakeOut = new JoystickButton(OperatorStick,4);
-		static Button spinUp = new JoystickButton(OperatorStick,5);
+		public static Button spinUp = new JoystickButton(OperatorStick,5);
 		static Button shoot = new JoystickButton(OperatorStick, 6);
 		static Button climberCW = new JoystickButton(OperatorStick , 11);
 		static Button climberCCW = new JoystickButton(OperatorStick , 12);
@@ -36,10 +36,11 @@ public class OI
 	public OI()
 	{
 		intakeIn.whileHeld(new IntakeIn());
+		intakeIn.whenReleased(new IntakeOff());
 		intakeOut.whileHeld(new IntakeOut());
 		climberCW.whileHeld(new ClimberCW());
 		climberCCW.whileHeld(new ClimberCCW());
-		shoot.whileActive(new ShootSequence());
+		shoot.whileHeld(new ShootSequence());
 		spinUp.whileHeld(new SpinUp());
 		
 	}	
