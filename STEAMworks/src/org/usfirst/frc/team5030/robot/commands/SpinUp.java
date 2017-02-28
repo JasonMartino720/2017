@@ -16,11 +16,15 @@ public class SpinUp extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.robotmap.ShooterMotor.setPID(0.25, 0, 0);
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.shooter.SpinFlywheel();
+    	//Robot.robotmap.ShooterMotor.getEncVelocity()
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

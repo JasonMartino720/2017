@@ -9,6 +9,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team5030.robot.subsystems.Intake;
 import org.usfirst.frc.team5030.robot.subsystems.Shooter;
+
+import com.ctre.CANTalon.FeedbackDevice;
+
 import org.usfirst.frc.team5030.robot.commands.ClimberOff;
 import org.usfirst.frc.team5030.robot.subsystems.Climber;
 import org.usfirst.frc.team5030.robot.subsystems.DriveTrain;
@@ -111,24 +114,12 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		/*
-		if(OI.aButton.get())
-		{
-			Robot.robotmap.intakeHoodLeft.setAngle(60);
-			Robot.robotmap.intakeHoodRight.setAngle(60);
-			System.out.println("Servo");
-		}
 		
-		if(OI.bButton.get())
-		{
-			Robot.robotmap.intakeHoodLeft.setAngle(5);
-			Robot.robotmap.intakeHoodRight.setAngle(5);
-			System.out.println("Off");
-		}
 		
-		System.out.println("Left " + Robot.robotmap.intakeHoodLeft.getAngle());
-		System.out.println("Right " + Robot.robotmap.intakeHoodRight.getAngle());
-		*/
+		double SRXEnc = Robot.robotmap.ShooterMotor.getEncVelocity();
+		System.out.println("Enc " + SRXEnc);
+	
+		
 	}
 
 	/**

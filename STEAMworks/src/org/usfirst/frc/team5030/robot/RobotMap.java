@@ -5,7 +5,9 @@ import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.Talon;
 
 import com.ctre.CANTalon;
+import com.ctre.CANTalon.FeedbackDevice;
 
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Servo;
 
 public class RobotMap 
@@ -39,31 +41,34 @@ public class RobotMap
 	public Talon climberMotor = new Talon(climber);
 	
 	//Talon SR for the front of the intake
-	int intakefront = 2;
+	int intakefront = 1;
 	public Talon intakeFront = new Talon(intakefront);
 	
 	//Talon SR for the back of the intake
-	int intakeback = 3; 
+	int intakeback = 2; 
 	public Talon intakeBack = new Talon(intakeback);
 	
 	//Talon SR for motor to feed the shooter
-	int feeder = 1;
+	int feeder = 3;
 	public Talon feederMotor = new Talon(feeder);
 	
 	//Servo for left intake hood
-	public static final Servo intakeHoodLeft = new Servo(4);
+	public static final Servo intakeHoodLeft = new Servo(6);
 	
 	//Servo for Right intake hood
 	public static final Servo intakeHoodRight = new Servo(5);
 	
 	//Servo for Gear Mechanism
-	public static final Servo gearMechanism = new Servo(6);
+	public static final Servo gearMechanism = new Servo(9);
 	
 	//Servo for Hopper Actuation
 	public static final Servo Hopper = new Servo(7);
 	
-	int Sploosher = 8;
-	public Talon SploosherMotor = new Talon(Sploosher);
+	int Sploosher = 3;
+	public Relay SploosherMotor = new Relay(Sploosher);
+	
+	int Sploosher2 = 4;
+	public Talon SploosherMotor2 = new Talon(Sploosher2);
 	
 	public RobotMap()
 	{
@@ -71,6 +76,8 @@ public class RobotMap
 		BLSRX = new CANTalon(1);
 		FRSRX = new CANTalon(2);
 		BRSRX = new CANTalon(3);
+		//BLSRX.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+		//BRSRX.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 		ShooterMotor = new CANTalon(4);
 	}
 	
