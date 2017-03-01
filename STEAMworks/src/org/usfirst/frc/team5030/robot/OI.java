@@ -7,7 +7,6 @@ import org.usfirst.frc.team5030.robot.commands.IntakeOff;
 import org.usfirst.frc.team5030.robot.commands.IntakeOut;
 import org.usfirst.frc.team5030.robot.commands.ShootSequence;
 import org.usfirst.frc.team5030.robot.commands.SpinUp;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -27,11 +26,11 @@ public class OI
 
 	public static Joystick OperatorStick = new Joystick(1);
 		static Button intakeIn = new JoystickButton(OperatorStick,1);
-		static Button intakeOut = new JoystickButton(OperatorStick,4);
+		static Button intakeOut = new JoystickButton(OperatorStick,2);
 		public static Button spinUp = new JoystickButton(OperatorStick,5);
 		static Button shoot = new JoystickButton(OperatorStick, 6);
-		static Button climberCW = new JoystickButton(OperatorStick , 11);
-		static Button climberCCW = new JoystickButton(OperatorStick , 12);
+		static Button climberCW = new JoystickButton(OperatorStick , 3);
+		static Button climberCCW = new JoystickButton(OperatorStick , 4);
 	
 	public OI()
 	{
