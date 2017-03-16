@@ -15,12 +15,13 @@ public class DriveTrain extends Subsystem
 		
 	public DriveTrain()
 	{
-		drive = new RobotDrive(RobotMap.FLSRX, RobotMap.BLSRX, RobotMap.FRSRX, RobotMap.BRSRX);
+		drive = new RobotDrive(Robot.robotmap.FLSRX, Robot.robotmap.BLSRX, Robot.robotmap.FRSRX, Robot.robotmap.BRSRX);
 		drive.setExpiration(1.0);
 	}
 	public void tankDrive(double leftJoy , double rightJoy)
 	{
 		drive.tankDrive(-leftJoy, -rightJoy, true);
+		//drive.arcadeDrive(-leftJoy, -rightJoy);
 	}
 	
 	public void initDefaultCommand()

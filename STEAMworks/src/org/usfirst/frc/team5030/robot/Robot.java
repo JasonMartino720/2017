@@ -9,10 +9,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team5030.robot.subsystems.Intake;
 import org.usfirst.frc.team5030.robot.subsystems.Shooter;
-
 import com.ctre.CANTalon.FeedbackDevice;
-
-import org.usfirst.frc.team5030.robot.commands.ClimberOff;
+import org.usfirst.frc.team5030.robot.commands.*;
 import org.usfirst.frc.team5030.robot.subsystems.Climber;
 import org.usfirst.frc.team5030.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.Timer;
@@ -44,8 +42,10 @@ public class Robot extends IterativeRobot {
 		shooter = new Shooter();
 		oi = new OI();
 		timer = new Timer();
-		chooser.addDefault("Default Auto", new ClimberOff());
+		chooser.addDefault("Default Auto", new Auto_Default());
+		chooser.addObject("Place Gear on Peg" , new Auto_PlaceGearOnly());
 		SmartDashboard.putData("Auto mode", chooser);
+		
 	}
 
 	/**
@@ -106,6 +106,8 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		
+		
 	}
 
 	/**
@@ -113,11 +115,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		Scheduler.getInstance().run();
-		
-		
-		double SRXEnc = Robot.robotmap.ShooterMotor.getEncVelocity();
-		System.out.println("Enc " + SRXEnc);
+	Scheduler.getInstance().run();
+	System.out.println("Shooter Velocity " + Robot.robotmap.ShooterMotor.getEncVelocity());
+	
 	
 		
 	}

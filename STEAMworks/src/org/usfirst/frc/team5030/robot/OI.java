@@ -20,9 +20,7 @@ public class OI
 {
 	
 	public static Joystick DriverStick = new Joystick(0); //Xbox Controller for Driver
-	static Button aButton = new JoystickButton(DriverStick, 1);
-	static Button bButton = new JoystickButton(DriverStick, 2);
-	
+
 
 	public static Joystick OperatorStick = new Joystick(1);
 		static Button intakeIn = new JoystickButton(OperatorStick,1);
