@@ -1,16 +1,17 @@
 package org.usfirst.frc.team5030.robot.commands;
 
 import org.usfirst.frc.team5030.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class IntakeOut extends Command {
+public class OpenHopperServo extends Command {
 
-    public IntakeOut() {
+    public OpenHopperServo() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.intake);
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
@@ -19,7 +20,7 @@ public class IntakeOut extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.intake.IntakeOut();
+    	Robot.robotmap.HopperServo.setAngle(180);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -29,12 +30,10 @@ public class IntakeOut extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.intake.IntakeOff();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }

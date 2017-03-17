@@ -1,7 +1,6 @@
 package org.usfirst.frc.team5030.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -9,7 +8,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team5030.robot.subsystems.Intake;
 import org.usfirst.frc.team5030.robot.subsystems.Shooter;
-import com.ctre.CANTalon.FeedbackDevice;
 import org.usfirst.frc.team5030.robot.commands.*;
 import org.usfirst.frc.team5030.robot.subsystems.Climber;
 import org.usfirst.frc.team5030.robot.subsystems.DriveTrain;
@@ -44,6 +42,8 @@ public class Robot extends IterativeRobot {
 		timer = new Timer();
 		chooser.addDefault("Default Auto", new Auto_Default());
 		chooser.addObject("Place Gear on Peg" , new Auto_PlaceGearOnly());
+		chooser.addObject("Shoot Right ", new Auto_ShootRight());
+		chooser.addObject("Shoot Left", new Auto_ShootLeft());
 		SmartDashboard.putData("Auto mode", chooser);
 		
 	}
@@ -116,9 +116,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 	Scheduler.getInstance().run();
-	System.out.println("Shooter Velocity " + Robot.robotmap.ShooterMotor.getEncVelocity());
-	
-	
+		
+	System.out.println("Right Encoder " + Robot.robotmap.FRSRX.getEncPosition());
+	System.out.println("Left Encoder " + Robot.robotmap.BLSRX.getEncPosition());
 		
 	}
 

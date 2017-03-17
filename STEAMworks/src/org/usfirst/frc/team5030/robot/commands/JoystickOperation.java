@@ -31,8 +31,7 @@ public class JoystickOperation extends Command {
 		double leftJoy; //Xvalue of OperatorStick 
 		double rightJoy; //Yvalue of OperatorStick
         double driverBands = 0.08;
-        double LeftDriveEnc = Robot.robotmap.BLSRX.getEncPosition();
-    	double RightDriveEnc = Robot.robotmap.BRSRX.getEncPosition();
+       
         
     	//DeadBands
         if (Robot.oi.DriverStick.getY() < driverBands  && Robot.oi.DriverStick.getY() > -driverBands) 
@@ -56,10 +55,8 @@ public class JoystickOperation extends Command {
        // Robot.drivetrain.tankDrive(leftJoy, rightJoy);
        // Robot.drivetrain.tankDrive(leftJoy * 0.7, rightJoy * 0.7);
         Robot.drivetrain.tankDrive(Math.pow(leftJoy, 5), Math.pow(rightJoy, 5));
-        /*
-        System.out.println("Left " + LeftDriveEnc);
-        System.out.println("Right " + RightDriveEnc);
-   */
+       
+   
     }
 
     // Make this return true when this Command no longer needs to run execute()

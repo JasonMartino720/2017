@@ -1,8 +1,6 @@
 package org.usfirst.frc.team5030.robot.subsystems;
 
-import org.usfirst.frc.team5030.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.usfirst.frc.team5030.robot.OI;
 import org.usfirst.frc.team5030.robot.Robot;
 import org.usfirst.frc.team5030.robot.commands.ClimberOff;
 

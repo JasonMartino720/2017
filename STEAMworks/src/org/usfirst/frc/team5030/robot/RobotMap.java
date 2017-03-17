@@ -1,13 +1,7 @@
 package org.usfirst.frc.team5030.robot;
 
-
-import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.Talon;
-
 import com.ctre.CANTalon;
-import com.ctre.CANTalon.FeedbackDevice;
-import com.ctre.CANTalon.TalonControlMode;
-
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Servo;
 
@@ -35,7 +29,7 @@ public class RobotMap
 		
 	//Talon SRX for the shooter motor ID = 4
 		
-	public static CANTalon ShooterMotor;
+	public CANTalon ShooterMotor;
 	
 	//Talon SR for the climber
 	final int climber = 0;
@@ -50,8 +44,8 @@ public class RobotMap
 	public Talon intakeBack = new Talon(intakeback);
 	
 	//Talon SR for motor to feed the shooter
-	final int feeder = 3;
-	public Talon feederMotor = new Talon(feeder);
+	final int Kicker = 3;
+	public Talon KickerMotor = new Talon(Kicker);
 	
 	//Servo for left intake hood
 	public final Servo intakeHoodLeft = new Servo(6);
@@ -65,11 +59,11 @@ public class RobotMap
 	//Servo for Hopper Actuation
 	public final Servo HopperServo = new Servo(7);
 	
-	int Sploosher = 3;
-	public Relay SploosherMotor = new Relay(Sploosher);
+	int Blender = 3;
+	public Relay BlenderMotor = new Relay(Blender);
 	
-	int Sploosher2 = 4;
-	public Talon SploosherMotor2 = new Talon(Sploosher2);
+	int Sploosher = 4;
+	public Talon SploosherMotor = new Talon(Sploosher);
 	
 	public RobotMap()
 	{

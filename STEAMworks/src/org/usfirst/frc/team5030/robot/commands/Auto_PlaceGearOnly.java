@@ -3,38 +3,48 @@ package org.usfirst.frc.team5030.robot.commands;
 import org.usfirst.frc.team5030.robot.Robot;
 
 import com.ctre.CANTalon.FeedbackDevice;
-import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class SpinUp extends Command {
+public class Auto_PlaceGearOnly extends Command {
 
-    public SpinUp() {
+	CommandGroup openServos;
+	
+	double rEnc = Robot.robotmap.FRSRX.getEncPosition();
+	double lEnc = Robot.robotmap.BLSRX.getEncPosition();
+    
+	int DistanceToPeg = 28340;  
+	
+	public Auto_PlaceGearOnly() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.shooter);
+        requires(Robot.drivetrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.robotmap.ShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-    	Robot.robotmap.ShooterMotor.changeControlMode(TalonControlMode.Speed);
-    	Robot.robotmap.ShooterMotor.setNominalClosedLoopVoltage(12.0);
-    	Robot.robotmap.ShooterMotor.reverseSensor(true);
-    	Robot.robotmap.ShooterMotor.setP(0.65);
-    	Robot.robotmap.ShooterMotor.setI(0.001);
-    	Robot.robotmap.ShooterMotor.setD(0);
-    	Robot.robotmap.ShooterMotor.setF(0.129);
+    	Robot.robotmap.BLSRX.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    	Robot.robotmap.FRSRX.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    	Robot.robotmap.BLSRX.setPosition(0);
+    	Robot.robotmap.FRSRX.setPosition(0);
+    	openServos = new CG_OpenServos();
+    	setTimeout(5);
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.SpinFlywheel(2760);
-    	System.out.println("Shooter Velocity " + Robot.robotmap.ShooterMotor.getEncVelocity());
-    	//Robot.robotmap.ShooterMotor.getEncVelocity()
+    	if(lEnc < DistanceToPeg && rEnc < DistanceToPeg)
+    	{
+    		Robot.drivetrain.tankDrive(-0.75, -0.75);
+    	}
+    	else
+    	{
+    		Robot.drivetrain.tankDrive(0.0, 0.0);
+    	}
     	
     }
 
@@ -45,12 +55,10 @@ public class SpinUp extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	
     }
 }
