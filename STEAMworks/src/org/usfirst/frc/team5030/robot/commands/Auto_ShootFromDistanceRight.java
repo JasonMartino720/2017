@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class Auto_ShootRight extends Command {
+public class Auto_ShootFromDistanceRight extends Command {
 	
 	CommandGroup openServos;
 	
@@ -24,7 +24,7 @@ public class Auto_ShootRight extends Command {
 	boolean Complete = false;
     
 
-    public Auto_ShootRight() {
+    public Auto_ShootFromDistanceRight() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.drivetrain);
         requires(Robot.shooter);
@@ -60,7 +60,7 @@ public class Auto_ShootRight extends Command {
     protected void execute() {
     	if(this.timeSinceInitialized() < 2.0)
     	{
-        	Robot.shooter.SpinFlywheel(-2780); //2780
+        	Robot.shooter.SpinFlywheel(-3965); //this is for 4 feet
 	    	
 	    }
     	else if(this.timeSinceInitialized() > 2.0 && this.timeSinceInitialized() < 10.0)

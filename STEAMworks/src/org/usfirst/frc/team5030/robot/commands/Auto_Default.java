@@ -20,6 +20,7 @@ public class Auto_Default extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	openServos = new CG_OpenServos();
+    	openServos.start();
     	
     }
 

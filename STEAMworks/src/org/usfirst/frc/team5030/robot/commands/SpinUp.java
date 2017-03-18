@@ -32,7 +32,7 @@ public class SpinUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.SpinFlywheel(2760);
+    	Robot.shooter.SpinFlywheel(-2760);
     	System.out.println("Shooter Velocity " + Robot.robotmap.ShooterMotor.getEncVelocity());
     	//Robot.robotmap.ShooterMotor.getEncVelocity()
     	

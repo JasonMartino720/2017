@@ -21,8 +21,8 @@ static final int intakeHoodDefaultLeft = 100;
 	
 	public void IntakeIn()
 	{
-		Robot.robotmap.intakeBack.set(-0.6);
-		Robot.robotmap.intakeFront.set(-0.6);
+		Robot.robotmap.intakeBack.set(-0.45);
+		Robot.robotmap.intakeFront.set(-0.45);
 		Robot.robotmap.intakeHoodRight.setAngle(intakeHoodPosR);
 		Robot.robotmap.intakeHoodLeft.setAngle(intakeHoodPosL);
 	}

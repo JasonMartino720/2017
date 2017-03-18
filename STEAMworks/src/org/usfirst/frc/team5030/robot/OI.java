@@ -29,15 +29,13 @@ public class OI
 		public static Button spinUp = new JoystickButton(OperatorStick,5);
 		static Button shoot = new JoystickButton(OperatorStick, 6);
 		static Button climberCW = new JoystickButton(OperatorStick , 3);
-		static Button climberCCW = new JoystickButton(OperatorStick , 4);
-	
+			
 	public OI()
 	{
 		intakeIn.whileHeld(new IntakeIn());
 		intakeIn.whenReleased(new IntakeOff());
 		intakeOut.whileHeld(new IntakeOut());
 		climberCW.whileHeld(new ClimberCW());
-		climberCCW.whileHeld(new ClimberCCW());
 		shoot.whileHeld(new ShootSequence());
 		spinUp.whileHeld(new SpinUp());
 		

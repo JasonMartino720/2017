@@ -21,12 +21,12 @@ public class DriveTrain extends Subsystem
 	{
 		if(Robot.oi.DriverStick.getRawButton(5))
 		{
-			drive.tankDrive(-leftJoy * 0.5, -rightJoy * 0.5, true);
+			drive.tankDrive(leftJoy * 0.5, rightJoy * 0.5, true);
 			
 		}
 		else
 		{
-			drive.tankDrive(-leftJoy, -rightJoy, true);
+			drive.tankDrive(leftJoy, rightJoy, true);
 			
 		}
 		//drive.arcadeDrive(-leftJoy, -rightJoy);

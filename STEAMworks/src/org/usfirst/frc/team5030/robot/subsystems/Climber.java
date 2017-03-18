@@ -14,12 +14,14 @@ public class Climber extends Subsystem {
     
     public void ClimberCW()
     {
+    	Robot.robotmap.intakeHoodRight.setAngle(160);
+    	Robot.robotmap.intakeHoodLeft.setAngle(20);
     	Robot.robotmap.climberMotor.set(1.0);
     }
 
     public void ClimberCCW()
     {
-    	Robot.robotmap.climberMotor.set(-1.0);
+    	//Robot.robotmap.climberMotor.set(-1.0);
     }
     
     public void initDefaultCommand() 

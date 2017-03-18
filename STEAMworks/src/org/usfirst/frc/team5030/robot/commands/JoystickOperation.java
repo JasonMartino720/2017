@@ -54,7 +54,7 @@ public class JoystickOperation extends Command {
     
        // Robot.drivetrain.tankDrive(leftJoy, rightJoy);
        // Robot.drivetrain.tankDrive(leftJoy * 0.7, rightJoy * 0.7);
-        Robot.drivetrain.tankDrive(Math.pow(leftJoy, 5), Math.pow(rightJoy, 5));
+        Robot.drivetrain.tankDrive(Math.pow(-leftJoy, 5), Math.pow(-rightJoy, 5));
        
    
     }

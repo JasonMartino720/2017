@@ -5,35 +5,30 @@ import org.usfirst.frc.team5030.robot.Robot;
 import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class Auto_ShootRight extends Command {
+public class Auto_ShootFromDistanceLeft extends Command {
 	
 	CommandGroup openServos;
-	
-	Timer timer;
 	
 	double rEnc = Robot.robotmap.BRSRX.getEncPosition();
 	double lEnc = Robot.robotmap.BLSRX.getEncPosition();
 	
-	boolean Complete = false;
-    
+	boolean turnComplete = false;
+    boolean ShootComplete = false;
 
-    public Auto_ShootRight() {
+    public Auto_ShootFromDistanceLeft() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.drivetrain);
         requires(Robot.shooter);
-        
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
     	Robot.robotmap.ShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     	Robot.robotmap.BRSRX.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     	Robot.robotmap.BLSRX.setFeedbackDevice(FeedbackDevice.QuadEncoder);
@@ -51,16 +46,13 @@ public class Auto_ShootRight extends Command {
     	Robot.robotmap.BRSRX.reverseOutput(true);
     	openServos = new CG_OpenServos();
     	openServos.start();
-    	setTimeout(14);
-    	//Robot.robotmap.gearMechanismServo.setAngle(0);
-    	//Robot.robotmap.HopperServo.setAngle(180);
-    }
+    	}
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(this.timeSinceInitialized() < 2.0)
     	{
-        	Robot.shooter.SpinFlywheel(-2780); //2780
+        	Robot.shooter.SpinFlywheel(-3965); //This is for 4 feet
 	    	
 	    }
     	else if(this.timeSinceInitialized() > 2.0 && this.timeSinceInitialized() < 10.0)
@@ -71,7 +63,7 @@ public class Auto_ShootRight extends Command {
     	}
     	else if(this.timeSinceInitialized() > 10.0 && this.timeSinceInitialized() < 11.5)
     	{
-    		Robot.drivetrain.tankDrive(-0.6, -0.8);
+    		Robot.drivetrain.tankDrive(-0.8, -0.6);
     		Robot.shooter.AllOff();
     	}
     	else if(this.timeSinceInitialized() > 11.5 && this.timeSinceInitialized() < 14.5)
@@ -85,11 +77,12 @@ public class Auto_ShootRight extends Command {
     	}
     	
     	
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true

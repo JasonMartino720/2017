@@ -44,8 +44,12 @@ public class Robot extends IterativeRobot {
 		chooser.addObject("Place Gear on Peg" , new Auto_PlaceGearOnly());
 		chooser.addObject("Shoot Right ", new Auto_ShootRight());
 		chooser.addObject("Shoot Left", new Auto_ShootLeft());
+		chooser.addObject("Gear on Left Peg", new Auto_GearLeftPeg());
+		chooser.addObject("Gear on Right Peg" , new Auto_GearRightPeg());
+		chooser.addObject("Shoot from Distance Right " , new Auto_ShootFromDistanceRight());
+		chooser.addObject("Shoot from Distance Left " , new Auto_ShootFromDistanceLeft());
 		SmartDashboard.putData("Auto mode", chooser);
-		
+				
 	}
 
 	/**
@@ -116,9 +120,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 	Scheduler.getInstance().run();
-		
-	System.out.println("Right Encoder " + Robot.robotmap.FRSRX.getEncPosition());
-	System.out.println("Left Encoder " + Robot.robotmap.BLSRX.getEncPosition());
+	
+	System.out.println("V " + Robot.robotmap.ShooterMotor.getEncVelocity());
 		
 	}
 
