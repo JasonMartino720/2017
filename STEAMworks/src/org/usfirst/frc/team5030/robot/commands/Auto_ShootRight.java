@@ -51,7 +51,7 @@ public class Auto_ShootRight extends Command {
     	Robot.robotmap.BRSRX.reverseOutput(true);
     	openServos = new CG_OpenServos();
     	openServos.start();
-    	setTimeout(14);
+    	setTimeout(14.75);
     	//Robot.robotmap.gearMechanismServo.setAngle(0);
     	//Robot.robotmap.HopperServo.setAngle(180);
     }
@@ -60,25 +60,16 @@ public class Auto_ShootRight extends Command {
     protected void execute() {
     	if(this.timeSinceInitialized() < 2.0)
     	{
-        	Robot.shooter.SpinFlywheel(-2780); //2780
+        	Robot.shooter.SpinFlywheel(-2795); //2780
 	    	
 	    }
-    	else if(this.timeSinceInitialized() > 2.0 && this.timeSinceInitialized() < 10.0)
+    	else if(this.timeSinceInitialized() > 2.0 && this.timeSinceInitialized() < 14.5)
     	{
     		Robot.shooter.PulseFeeder();
     		System.out.println(" Shot V " + Robot.robotmap.ShooterMotor.getEncVelocity());
 	    	
     	}
-    	else if(this.timeSinceInitialized() > 10.0 && this.timeSinceInitialized() < 11.5)
-    	{
-    		Robot.drivetrain.tankDrive(-0.6, -0.8);
-    		Robot.shooter.AllOff();
-    	}
-    	else if(this.timeSinceInitialized() > 11.5 && this.timeSinceInitialized() < 14.5)
-    	{
-    		Robot.drivetrain.tankDrive(-0.6, -0.6);
-    	}
-    	else
+       	else
     	{
     		Robot.shooter.AllOff();
     		Robot.drivetrain.tankDrive(0.0, 0.0);

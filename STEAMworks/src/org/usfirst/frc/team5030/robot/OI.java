@@ -5,6 +5,7 @@ import org.usfirst.frc.team5030.robot.commands.ClimberCW;
 import org.usfirst.frc.team5030.robot.commands.IntakeIn;
 import org.usfirst.frc.team5030.robot.commands.IntakeOff;
 import org.usfirst.frc.team5030.robot.commands.IntakeOut;
+import org.usfirst.frc.team5030.robot.commands.ReverseBlender;
 import org.usfirst.frc.team5030.robot.commands.ShootSequence;
 import org.usfirst.frc.team5030.robot.commands.SpinUp;
 import edu.wpi.first.wpilibj.Joystick;
@@ -29,6 +30,7 @@ public class OI
 		public static Button spinUp = new JoystickButton(OperatorStick,5);
 		static Button shoot = new JoystickButton(OperatorStick, 6);
 		static Button climberCW = new JoystickButton(OperatorStick , 3);
+		static Button reverseBlender = new JoystickButton(OperatorStick , 7);
 			
 	public OI()
 	{
@@ -38,6 +40,7 @@ public class OI
 		climberCW.whileHeld(new ClimberCW());
 		shoot.whileHeld(new ShootSequence());
 		spinUp.whileHeld(new SpinUp());
+		reverseBlender.whileHeld(new ReverseBlender());
 		
 	}	
 	

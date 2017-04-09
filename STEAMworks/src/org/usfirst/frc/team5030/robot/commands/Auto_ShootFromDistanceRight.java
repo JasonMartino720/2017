@@ -60,7 +60,7 @@ public class Auto_ShootFromDistanceRight extends Command {
     protected void execute() {
     	if(this.timeSinceInitialized() < 2.0)
     	{
-        	Robot.shooter.SpinFlywheel(-3965); //this is for 4 feet
+        	Robot.shooter.SpinFlywheel(-3965); //2780
 	    	
 	    }
     	else if(this.timeSinceInitialized() > 2.0 && this.timeSinceInitialized() < 10.0)
@@ -69,14 +69,10 @@ public class Auto_ShootFromDistanceRight extends Command {
     		System.out.println(" Shot V " + Robot.robotmap.ShooterMotor.getEncVelocity());
 	    	
     	}
-    	else if(this.timeSinceInitialized() > 10.0 && this.timeSinceInitialized() < 11.5)
+    	else if(this.timeSinceInitialized() > 10.0 && this.timeSinceInitialized() < 14.5)
     	{
-    		Robot.drivetrain.tankDrive(-0.6, -0.8);
+    		//Robot.drivetrain.tankDrive(-0.6, -0.8);
     		Robot.shooter.AllOff();
-    	}
-    	else if(this.timeSinceInitialized() > 11.5 && this.timeSinceInitialized() < 14.5)
-    	{
-    		Robot.drivetrain.tankDrive(-0.6, -0.6);
     	}
     	else
     	{

@@ -52,7 +52,7 @@ public class Auto_ShootFromDistanceLeft extends Command {
     protected void execute() {
     	if(this.timeSinceInitialized() < 2.0)
     	{
-        	Robot.shooter.SpinFlywheel(-3965); //This is for 4 feet
+        	Robot.shooter.SpinFlywheel(-4020); //2780
 	    	
 	    }
     	else if(this.timeSinceInitialized() > 2.0 && this.timeSinceInitialized() < 10.0)
@@ -63,12 +63,12 @@ public class Auto_ShootFromDistanceLeft extends Command {
     	}
     	else if(this.timeSinceInitialized() > 10.0 && this.timeSinceInitialized() < 11.5)
     	{
-    		Robot.drivetrain.tankDrive(-0.8, -0.6);
+    		//Robot.drivetrain.tankDrive(-0.8, -0.6);
     		Robot.shooter.AllOff();
     	}
     	else if(this.timeSinceInitialized() > 11.5 && this.timeSinceInitialized() < 14.5)
     	{
-    		Robot.drivetrain.tankDrive(-0.6, -0.6);
+    		//Robot.drivetrain.tankDrive(-0.6, -0.6);
     	}
     	else
     	{

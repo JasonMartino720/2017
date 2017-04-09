@@ -29,10 +29,10 @@ static final int intakeHoodDefaultLeft = 100;
 	
 	public void IntakeOut()
 	{
-		Robot.robotmap.intakeBack.set(0.6);
-		Robot.robotmap.intakeFront.set(0.6);
-		Robot.robotmap.intakeHoodRight.setAngle(intakeHoodPosR);
-		Robot.robotmap.intakeHoodLeft.setAngle(intakeHoodPosL);
+		Robot.robotmap.intakeBack.set(1.0);
+		Robot.robotmap.intakeFront.set(1.0);
+		//Robot.robotmap.intakeHoodRight.setAngle(intakeHoodPosR);
+		//Robot.robotmap.intakeHoodLeft.setAngle(intakeHoodPosL);
 	}
 	
 	public void IntakeServoDefault()

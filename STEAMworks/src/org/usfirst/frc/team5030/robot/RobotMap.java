@@ -2,6 +2,8 @@ package org.usfirst.frc.team5030.robot;
 
 import edu.wpi.first.wpilibj.Talon;
 import com.ctre.CANTalon;
+
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Servo;
 
@@ -65,18 +67,22 @@ public class RobotMap
 	int Sploosher = 4;
 	public Talon SploosherMotor = new Talon(Sploosher);
 	
+	int GearMech = 8;
+	public Talon GearMechMotor = new Talon(GearMech);
+	
+	public DigitalInput GearMechBottom;
+	
+	public DigitalInput GearMechTop;
+	
 	public RobotMap()
 	{
 		FLSRX = new CANTalon(0);
 		BLSRX = new CANTalon(1);
 		FRSRX = new CANTalon(2);
 		BRSRX = new CANTalon(3);
-		//BLSRX.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-		//BRSRX.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-		//ShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-		//ShooterMotor.setProfile(0);
-		
 		ShooterMotor = new CANTalon(4);
+		GearMechBottom = new DigitalInput(0);
+		GearMechTop = new DigitalInput(1);
 	}
 	
 	

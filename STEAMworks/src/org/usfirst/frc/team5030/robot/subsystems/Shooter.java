@@ -39,6 +39,11 @@ public class Shooter extends Subsystem {
     	Robot.robotmap.ShooterMotor.set(0.0);
     }
     
+    public void ReverseBlender()
+    {
+    	Robot.robotmap.BlenderMotor.set(Relay.Value.kForward);
+    }
+    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new FlywheelOff());

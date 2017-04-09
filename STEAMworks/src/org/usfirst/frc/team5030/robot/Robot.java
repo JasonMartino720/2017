@@ -11,6 +11,8 @@ import org.usfirst.frc.team5030.robot.subsystems.Shooter;
 import org.usfirst.frc.team5030.robot.commands.*;
 import org.usfirst.frc.team5030.robot.subsystems.Climber;
 import org.usfirst.frc.team5030.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team5030.robot.subsystems.GearMechanism;
+
 import edu.wpi.first.wpilibj.Timer;
 
 
@@ -22,6 +24,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static RobotMap robotmap;
 	public static Shooter shooter;
+	public static GearMechanism gearmechanism;
 	public static Timer timer;
 	
 	Command autonomousCommand;
@@ -38,6 +41,7 @@ public class Robot extends IterativeRobot {
 		climber = new Climber();
 		drivetrain = new DriveTrain();
 		shooter = new Shooter();
+		gearmechanism = new GearMechanism();
 		oi = new OI();
 		timer = new Timer();
 		chooser.addDefault("Default Auto", new Auto_Default());
@@ -48,6 +52,7 @@ public class Robot extends IterativeRobot {
 		chooser.addObject("Gear on Right Peg" , new Auto_GearRightPeg());
 		chooser.addObject("Shoot from Distance Right " , new Auto_ShootFromDistanceRight());
 		chooser.addObject("Shoot from Distance Left " , new Auto_ShootFromDistanceLeft());
+		chooser.addObject("Gear and Shoot", new ShootandGearRed());
 		SmartDashboard.putData("Auto mode", chooser);
 				
 	}

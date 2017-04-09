@@ -45,31 +45,23 @@ public class Auto_ShootLeft extends Command {
     	Robot.robotmap.BRSRX.reverseOutput(true);
     	openServos = new CG_OpenServos();
     	openServos.start();
+    	setTimeout(14.75);
     	}
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(this.timeSinceInitialized() < 2.0)
+    	if(this.timeSinceInitialized() < 1.0)
     	{
-        	Robot.shooter.SpinFlywheel(-2780); //2780
+        	Robot.shooter.SpinFlywheel(-2782); //2780
 	    	
 	    }
-    	else if(this.timeSinceInitialized() > 2.0 && this.timeSinceInitialized() < 10.0)
+    	else if(this.timeSinceInitialized() > 1.0 && this.timeSinceInitialized() < 14.25)
     	{
     		Robot.shooter.PulseFeeder();
     		System.out.println(" Shot V " + Robot.robotmap.ShooterMotor.getEncVelocity());
 	    	
     	}
-    	else if(this.timeSinceInitialized() > 10.0 && this.timeSinceInitialized() < 11.5)
-    	{
-    		Robot.drivetrain.tankDrive(-0.8, -0.6);
-    		Robot.shooter.AllOff();
-    	}
-    	else if(this.timeSinceInitialized() > 11.5 && this.timeSinceInitialized() < 14.5)
-    	{
-    		Robot.drivetrain.tankDrive(-0.6, -0.6);
-    	}
-    	else
+       	else
     	{
     		Robot.shooter.AllOff();
     		Robot.drivetrain.tankDrive(0.0, 0.0);
@@ -81,7 +73,7 @@ public class Auto_ShootLeft extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

@@ -26,6 +26,7 @@ public class Auto_PlaceGearOnly extends Command {
 	public Auto_PlaceGearOnly() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.drivetrain);
+        requires(Robot.gearmechanism);
     }
 
     // Called just before this Command runs the first time
@@ -64,9 +65,23 @@ public class Auto_PlaceGearOnly extends Command {
     	
     	
     	}
-    	else
+    	else if(timeSinceInitialized() < 5.25 && timeSinceInitialized() > 4.5)
     	{
     		Robot.drivetrain.tankDrive(0.0, 0.0);
+    		Robot.gearmechanism.GearMechJoyControl(-.6);
+    	}
+    	else if(timeSinceInitialized() < 7.5 && timeSinceInitialized() > 5.25)
+    	{
+    		Robot.gearmechanism.GearMechforTime(0.0);
+    		Robot.drivetrain.tankDrive(0.65, 0.65);
+    	}
+    	else if(timeSinceInitialized() < 14.5 && timeSinceInitialized() > 7.5)
+    	{
+    		Robot.drivetrain.tankDrive(0.0, 0.0);
+    	}
+    	else
+    	{
+    		
     	}
     		
     	
