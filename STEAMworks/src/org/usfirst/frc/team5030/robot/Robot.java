@@ -45,14 +45,17 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		timer = new Timer();
 		chooser.addDefault("Default Auto", new Auto_Default());
-		chooser.addObject("Place Gear on Peg" , new Auto_PlaceGearOnly());
+		chooser.addObject("Center Peg " , new Auto_PlaceGearOnly());
 		chooser.addObject("Shoot Right ", new Auto_ShootRight());
 		chooser.addObject("Shoot Left", new Auto_ShootLeft());
 		chooser.addObject("Gear on Left Peg", new Auto_GearLeftPeg());
 		chooser.addObject("Gear on Right Peg" , new Auto_GearRightPeg());
 		chooser.addObject("Shoot from Distance Right " , new Auto_ShootFromDistanceRight());
 		chooser.addObject("Shoot from Distance Left " , new Auto_ShootFromDistanceLeft());
-		chooser.addObject("Gear and Shoot", new ShootandGearRed());
+		chooser.addObject("Gear and Shoot Red", new ShootandGearRed());
+		chooser.addObject("Shoot and gear BLue", new Auto_ShootandGearBlue());
+		chooser.addObject("Red Hopper", new Auto_HopperRed());
+		chooser.addObject("Blue Hopper", new Auto_HopperBlue());
 		SmartDashboard.putData("Auto mode", chooser);
 				
 	}

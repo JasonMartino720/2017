@@ -17,7 +17,7 @@ public class Auto_PlaceGearOnly extends Command {
 	
 	Timer timer;
 	
-	boolean Complete = false;
+	boolean isFinished = false;
 	double rEnc = Robot.robotmap.BRSRX.getEncPosition();
 	double lEnc = Robot.robotmap.BLSRX.getEncPosition();
     
@@ -37,7 +37,7 @@ public class Auto_PlaceGearOnly extends Command {
     	//openServos = new CG_OpenServos();
     	Robot.robotmap.gearMechanismServo.setAngle(0);
     	Robot.robotmap.HopperServo.setAngle(180);
-    	setTimeout(4.5);
+    	setTimeout(14.5);
     	
     }
 
@@ -58,40 +58,30 @@ public class Auto_PlaceGearOnly extends Command {
     		Robot.drivetrain.tankDrive(0.0, 0.0);
     	}
     	*/
-    	if(timeSinceInitialized() < 4.5)
+    	if(this.timeSinceInitialized() < 2.5)
     	{
-    	
     		Robot.drivetrain.tankDrive(-0.65, -0.65);
-    	
-    	
-    	}
-    	else if(timeSinceInitialized() < 5.25 && timeSinceInitialized() > 4.5)
-    	{
-    		Robot.drivetrain.tankDrive(0.0, 0.0);
-    		Robot.gearmechanism.GearMechJoyControl(-.6);
-    	}
-    	else if(timeSinceInitialized() < 7.5 && timeSinceInitialized() > 5.25)
-    	{
-    		Robot.gearmechanism.GearMechforTime(0.0);
-    		Robot.drivetrain.tankDrive(0.65, 0.65);
-    	}
-    	else if(timeSinceInitialized() < 14.5 && timeSinceInitialized() > 7.5)
-    	{
-    		Robot.drivetrain.tankDrive(0.0, 0.0);
     	}
     	else
     	{
-    		
+	    	Robot.drivetrain.tankDrive(0.0, 0.0);
+	    	Timer.delay(0.5);
+	    	Robot.gearmechanism.GearMechJoyControl(0.6);
+	    	Timer.delay(0.5);
+	    	Robot.drivetrain.tankDrive(0.0, 0.0);
+	    	Robot.gearmechanism.GearMechJoyControl(0.0);
+	    	Timer.delay(0.25);
+	    	Robot.drivetrain.tankDrive(0.5, 0.5);
+	    	Timer.delay(3.0);
+	    	Robot.drivetrain.tankDrive(0.0, 0.0);
+	    	isFinished = true;
     	}
-    		
-    	
-    	   	
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return isFinished;
     }
 
     // Called once after isFinished returns true

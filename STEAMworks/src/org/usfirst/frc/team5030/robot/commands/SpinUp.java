@@ -23,18 +23,32 @@ public class SpinUp extends Command {
     	Robot.robotmap.ShooterMotor.changeControlMode(TalonControlMode.Speed);
     	Robot.robotmap.ShooterMotor.setNominalClosedLoopVoltage(12.0);
     	Robot.robotmap.ShooterMotor.reverseSensor(true);
-    	Robot.robotmap.ShooterMotor.setP(0.65);
+    	Robot.robotmap.ShooterMotor.setP(0.25); // 0.25
     	Robot.robotmap.ShooterMotor.setI(0.001);
-    	Robot.robotmap.ShooterMotor.setD(0);
-    	Robot.robotmap.ShooterMotor.setF(0.129);
+    	Robot.robotmap.ShooterMotor.setD(2.0);
+    	Robot.robotmap.ShooterMotor.setF(0.07);//0.129
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.SpinFlywheel(-2780);
+    /*	if(Robot.robotmap.ShooterMotor.getEncVelocity() > -2200)
+    	{
+    		Robot.robotmap.ShooterMotor.changeControlMode(TalonControlMode.PercentVbus);
+    		Robot.robotmap.ShooterMotor.set(-0.5);
+    		System.out.println("Spinning");
+    	}
+    	else
+    	{
+    	*/
+    	Robot.shooter.SpinFlywheel(-3000);
+    	
     	System.out.println("Shooter Velocity " + Robot.robotmap.ShooterMotor.getEncVelocity());
     	//Robot.robotmap.ShooterMotor.getEncVelocity()
+    	//}
+    	//Robot.robotmap.ShooterMotor.
+    	
+    	
     	
     }
 

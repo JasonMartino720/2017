@@ -63,7 +63,7 @@ public class Auto_ShootRight extends Command {
         	Robot.shooter.SpinFlywheel(-2795); //2780
 	    	
 	    }
-    	else if(this.timeSinceInitialized() > 2.0 && this.timeSinceInitialized() < 14.5)
+    	else if(this.timeSinceInitialized() > 2.0 && this.timeSinceInitialized() < 10)
     	{
     		Robot.shooter.PulseFeeder();
     		System.out.println(" Shot V " + Robot.robotmap.ShooterMotor.getEncVelocity());
@@ -72,7 +72,12 @@ public class Auto_ShootRight extends Command {
        	else
     	{
     		Robot.shooter.AllOff();
+    		Robot.drivetrain.tankDrive(-0.75, 0.75);
+    		timer.delay(1);
+    		Robot.drivetrain.tankDrive(0.75, 0.75);
+    		timer.delay(3);
     		Robot.drivetrain.tankDrive(0.0, 0.0);
+    		
     	}
     	
     	
